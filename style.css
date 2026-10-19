@@ -1,0 +1,542 @@
+/**
+ * ============================================================================
+ * STYLE.CSS - Hoja de estilos principal de HontaShop
+ * ============================================================================
+ * Archivo CSS que define todos los estilos visuales del sitio web.
+ * Incluye diseño responsivo, animaciones y efectos interactivos.
+ *
+ * Índice de Secciones:
+ * 1. Estilos generales del body
+ * 2. Cabecera y navegación
+ * 3. Contenido principal y botones
+ * 4. Sección de productos
+ * 5. Formularios
+ * 6. Pie de página
+ * 7. Secciones especiales (video, info, mapa)
+ * 8. Sistema de navegación de categorías
+ * 9. Animaciones
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. ESTILOS GENERALES
+   ============================================================================ */
+
+/**
+ * Configuración base del documento
+ * Define la fuente, colores y espaciado general de todo el sitio
+ */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;  /* Fuente principal del sitio */
+  margin: 0;                                    /* Eliminar márgenes por defecto del navegador */
+  padding: 0;                                   /* Eliminar padding por defecto del navegador */
+  background-color: #f2f7f4;                    /* Color de fondo verde claro suave */
+  color: #222;                                  /* Color de texto principal (gris oscuro) */
+}
+
+/* ============================================================================
+   2. CABECERA Y NAVEGACIÓN
+   ============================================================================ */
+
+/**
+ * Barra superior de la página
+ * Contiene el logo y el menú de navegación principal
+ */
+header {
+  background-color: #2d6a4f;           /* Verde oscuro corporativo */
+  color: white;                         /* Texto blanco para contraste */
+  display: flex;                        /* Usar flexbox para layout */
+  justify-content: space-between;       /* Separar logo y menú a los extremos */
+  align-items: center;                  /* Centrar verticalmente los elementos */
+  padding: 15px 40px;                   /* Espaciado interno (arriba/abajo, izquierda/derecha) */
+}
+
+/**
+ * Contenedor del logo
+ * Agrupa la imagen y el texto del logo
+ */
+header .logo {
+  display: flex;                        /* Usar flexbox */
+  align-items: center;                  /* Centrar verticalmente */
+  gap: 10px;                           /* Espacio de 10px entre imagen y texto */
+}
+
+/**
+ * Imagen del logo en la cabecera
+ */
+header .logo img {
+  width: 40px;                          /* Ancho fijo de 40 píxeles */
+  height: 40px;                         /* Alto fijo de 40 píxeles */
+}
+
+/* ===== Menú de navegación principal ===== */
+
+/**
+ * Lista de navegación
+ * Contiene los enlaces principales del sitio (Inicio, Productos, Contacto)
+ */
+nav ul {
+  list-style: none;                     /* Eliminar viñetas de lista */
+  margin: 0;                            /* Sin márgenes */
+  padding: 0;                           /* Sin padding */
+  display: flex;                        /* Disposición horizontal */
+  gap: 20px;                           /* Espacio de 20px entre elementos */
+}
+
+/**
+ * Enlaces del menú de navegación
+ * Estilos base y efectos de hover
+ */
+nav a {
+  color: white;                         /* Color blanco */
+  text-decoration: none;                /* Quitar subrayado por defecto */
+  font-weight: bold;                    /* Texto en negrita */
+  transition: 0.3s;                     /* Transición suave de 0.3 segundos para cambios */
+}
+
+/**
+ * Efecto hover y estado activo en enlaces del menú
+ * Cambia el color al pasar el ratón o cuando está en la página actual
+ */
+nav a:hover,
+nav a.activo {
+  color: #ffd166;                       /* Color amarillo dorado */
+}
+
+/* ============================================================================
+   3. CONTENIDO PRINCIPAL Y BOTONES
+   ============================================================================ */
+
+/**
+ * Contenedor principal de cada página
+ * Envuelve todo el contenido entre header y footer
+ */
+main {
+  padding: 40px 20px;                   /* Espaciado interno (40px arriba/abajo, 20px izquierda/derecha) */
+  text-align: center;                   /* Centrar contenido de texto por defecto */
+}
+
+/**
+ * Estilo para botones de llamada a la acción (CTA)
+ * Usado en la página de inicio y otras secciones
+ */
+.boton {
+  display: inline-block;                /* Comportamiento de bloque pero en línea */
+  margin-top: 15px;                     /* Margen superior de 15px */
+  background-color: #40916c;            /* Color verde medio */
+  color: white;                         /* Texto blanco */
+  padding: 10px 20px;                   /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
+  text-decoration: none;                /* Sin subrayado */
+  border-radius: 5px;                   /* Bordes redondeados de 5px */
+  transition: background-color 0.3s;    /* Transición suave del color de fondo */
+}
+
+/**
+ * Efecto hover para botones
+ * Oscurece el color al pasar el ratón
+ */
+.boton:hover {
+  background-color: #2d6a4f;            /* Verde más oscuro */
+}
+
+/* ============================================================================
+   4. SECCIÓN DE PRODUCTOS
+   ============================================================================ */
+
+/**
+ * Contenedor de tarjetas de productos
+ * Usa flexbox para crear una cuadrícula responsiva
+ */
+.productos {
+  display: flex;                        /* Usar flexbox */
+  justify-content: center;              /* Centrar horizontalmente */
+  flex-wrap: wrap;                      /* Permitir que los elementos se envuelvan en múltiples líneas */
+  gap: 35px;                           /* Espacio aumentado a 35px entre tarjetas */
+  margin-top: 40px;                     /* Margen superior aumentado a 40px */
+  margin-bottom: 40px;                  /* Margen inferior de 40px */
+}
+
+/**
+ * Tarjeta individual de producto
+ * Muestra información de un producto (imagen, título, descripción, precio)
+ */
+.productos article {
+  background-color: white;              /* Fondo blanco */
+  border: 2px solid #e0e0e0;           /* Borde gris claro más visible de 2px */
+  border-radius: 15px;                  /* Bordes más redondeados de 15px */
+  width: 280px;                         /* Ancho aumentado a 280px para mejor visualización */
+  padding: 0;                           /* Eliminamos padding general para que la imagen ocupe todo el ancho */
+  overflow: hidden;                     /* Para que la imagen respete el border-radius del article */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+  transition: all 0.3s ease;            /* Transición suave para efectos hover */
+  text-align: center;                   /* Centrar contenido */
+  min-height: 180px;                    /* Altura mínima para mantener consistencia */
+  display: flex;                        /* Usar flexbox */
+  flex-direction: column;               /* Dirección vertical */
+}
+
+/* Contenedor para el texto del producto para recuperar el padding */
+.productos article h4, 
+.productos article p, 
+.productos article .precio,
+.productos article table {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.productos article .precio {
+  margin-bottom: 25px;
+}
+
+/**
+ * Imagen de portada en tarjetas de producto
+ */
+.producto-img {
+  width: 100%;
+  height: 250px;                        /* Aumentamos un poco la altura para que sea más grande */
+  object-fit: cover;
+  border-radius: 0;                     /* Quitamos radio individual ya que el padre tiene overflow:hidden */
+  margin-bottom: 15px;
+}
+
+/**
+ * Efecto hover en tarjetas de producto
+ * Eleva la tarjeta al pasar el ratón
+ */
+.productos article:hover {
+  transform: translateY(-8px);          /* Elevar 8px hacia arriba */
+  box-shadow: 0 8px 20px rgba(45, 106, 79, 0.2); /* Sombra verde más pronunciada */
+  border-color: #40916c;                /* Cambiar color del borde al verde corporativo */
+}
+
+/**
+ * Texto enfatizado dentro de productos
+ * Para notas adicionales o aclaraciones
+ */
+.productos article em {
+  font-size: 0.9em;                     /* Tamaño de fuente 90% del normal */
+  color: #555;                          /* Color gris medio */
+}
+
+/**
+ * Tablas dentro de tarjetas de producto
+ * Para mostrar especificaciones técnicas
+ */
+.productos table {
+  width: 100%;                          /* Ancho completo del contenedor padre */
+  margin-top: 15px;                     /* Margen superior de 15px */
+  font-size: 0.9em;                     /* Tamaño de fuente 90% del normal */
+  text-align: left;                     /* Alineación de texto a la izquierda */
+  border-collapse: collapse;            /* Colapsar bordes de celdas adyacentes */
+}
+
+/**
+ * Celdas de encabezado y datos de tabla
+ * Líneas divisorias y espaciado
+ */
+.productos th, .productos td {
+  border-bottom: 1px solid #eee;       /* Línea divisoria inferior gris muy claro */
+  padding: 5px 0;                       /* Espaciado vertical de 5px */
+}
+
+/**
+ * Imágenes de productos
+ * Se ajustan al ancho del contenedor
+ */
+.productos img {
+  width: 100%;                          /* Ancho completo del contenedor */
+  border-radius: 8px;                   /* Bordes redondeados de 8px */
+}
+
+/**
+ * Títulos de productos (h4)
+ * Nombres de los productos dentro de las tarjetas
+ */
+.productos article h4 {
+  color: #2d6a4f;                       /* Color verde oscuro corporativo */
+  font-size: 20px;                      /* Tamaño de fuente aumentado */
+  margin-bottom: 12px;                  /* Espacio inferior de 12px */
+  margin-top: 0;                        /* Sin margen superior */
+  line-height: 1.3;                     /* Altura de línea para mejor legibilidad */
+}
+
+/**
+ * Descripciones de productos (párrafos p)
+ * Información del tipo o características
+ */
+.productos article p {
+  color: #666;                          /* Color gris medio */
+  font-size: 15px;                      /* Tamaño de fuente cómodo */
+  margin: 10px 0;                       /* Margen vertical de 10px */
+  line-height: 1.5;                     /* Altura de línea para mejor legibilidad */
+}
+
+/**
+ * Etiqueta de precio
+ * Destacado en color verde y negrita con mayor tamaño
+ */
+.precio {
+  color: #2d6a4f;                       /* Color verde oscuro corporativo */
+  font-weight: bold;                    /* Texto en negrita */
+  font-size: 22px;                      /* Tamaño de fuente aumentado para destacar */
+  display: block;                       /* Ocupar toda la línea */
+  margin-top: 15px;                     /* Separación superior de 15px */
+  padding-top: 15px;                    /* Padding superior de 15px */
+  border-top: 2px solid #f0f0f0;       /* Línea divisoria superior */
+}
+
+/* ============================================================================
+   5. FORMULARIOS
+   ============================================================================ */
+
+/**
+ * Contenedor principal del formulario de contacto
+ * Centrado y con diseño de tarjeta
+ */
+.formulario {
+  max-width: 400px;                     /* Ancho máximo de 400px */
+  margin: auto;                         /* Centrado horizontal automático */
+  background: white;                    /* Fondo blanco */
+  padding: 20px;                        /* Espaciado interno de 20px */
+  border-radius: 10px;                  /* Bordes redondeados de 10px */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/**
+ * Campos de entrada y área de texto del formulario
+ * Estilos consistentes para todos los inputs
+ */
+.formulario input,
+.formulario textarea {
+  width: 100%;                          /* Ancho completo */
+  margin-bottom: 15px;                  /* Espacio de 15px entre campos */
+  padding: 10px;                        /* Espaciado interno de 10px */
+  border: 1px solid #ccc;              /* Borde gris claro */
+  border-radius: 5px;                   /* Bordes redondeados de 5px */
+}
+
+/**
+ * Botón de envío del formulario
+ * Estilo destacado para llamar a la acción
+ */
+.formulario input[type="submit"] {
+  background-color: #40916c;            /* Fondo verde */
+  color: white;                         /* Texto blanco */
+  border: none;                         /* Sin borde */
+  cursor: pointer;                      /* Cursor de mano al pasar */
+  font-weight: bold;                    /* Texto en negrita */
+}
+
+/**
+ * Efecto hover del botón de envío
+ * Oscurece el color al pasar el ratón
+ */
+.formulario input[type="submit"]:hover {
+  background-color: #2d6a4f;            /* Verde más oscuro */
+}
+
+/* ============================================================================
+   6. PIE DE PÁGINA
+   ============================================================================ */
+
+/**
+ * Pie de página del sitio
+ * Información de copyright y enlaces sociales
+ */
+footer {
+  background-color: #2d6a4f;           /* Verde oscuro (mismo color que header) */
+  color: white;                         /* Texto blanco */
+  text-align: center;                   /* Centrado de texto */
+  padding: 10px 0;                      /* Espaciado vertical de 10px */
+  margin-top: 40px;                     /* Separación de 40px del contenido superior */
+}
+
+/* ============================================================================
+   7. SECCIONES ESPECIALES
+   ============================================================================ */
+
+/**
+ * Secciones de información, video promocional y mapa
+ * Diseño de tarjeta centralizado para contenido destacado
+ */
+.info, .video-promo, .mapa {
+  max-width: 800px;                     /* Ancho máximo de 800px */
+  margin: 40px auto;                    /* Centrado horizontal con margen vertical de 40px */
+  padding: 20px;                        /* Espaciado interno de 20px */
+  background-color: #fff;               /* Fondo blanco */
+  border-radius: 8px;                   /* Bordes redondeados de 8px */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra muy suave y sutil */
+}
+
+/**
+ * Listas dentro de secciones de información
+ * Alineación izquierda para mejor legibilidad
+ */
+.info ul {
+  text-align: left;                     /* Alineación a la izquierda */
+  display: inline-block;                /* Comportamiento de bloque en línea */
+}
+
+/* ============================================================================
+   8. SISTEMA DE NAVEGACIÓN DE CATEGORÍAS
+   ============================================================================ */
+
+/**
+ * Contenedor principal del menú de categorías
+ * Agrupa los botones de navegación entre categorías
+ */
+.menu-categorias-container {
+  margin: 30px auto;                    /* Centrado horizontal con margen vertical de 30px */
+  text-align: center;                   /* Centrado de contenido */
+  max-width: 1000px;                    /* Ancho máximo de 1000px */
+}
+
+/**
+ * Contenedor de botones de categorías
+ * Disposición flexible y responsiva
+ */
+.menu-categorias {
+  display: flex;                        /* Usar flexbox */
+  justify-content: center;              /* Centrado horizontal */
+  flex-wrap: wrap;                      /* Permitir que los botones se envuelvan en múltiples líneas */
+  gap: 15px;                           /* Espacio de 15px entre botones */
+  margin-bottom: 15px;                  /* Margen inferior de 15px */
+}
+
+/**
+ * Estilo base para botones de categoría
+ * Diseño moderno con gradiente y efectos visuales
+ */
+.btn-categoria {
+  /* Fondo con gradiente verde de oscuro a más oscuro */
+  background: linear-gradient(135deg, #40916c 0%, #2d6a4f 100%);
+  color: white;                         /* Texto blanco */
+  border: none;                         /* Sin borde */
+  padding: 12px 25px;                   /* Espaciado interno (12px arriba/abajo, 25px izquierda/derecha) */
+  font-size: 16px;                      /* Tamaño de fuente 16px */
+  font-weight: bold;                    /* Texto en negrita */
+  border-radius: 25px;                  /* Bordes muy redondeados (forma de píldora) */
+  cursor: pointer;                      /* Cursor de mano */
+  transition: all 0.3s ease;            /* Transición suave de todas las propiedades en 0.3s */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15); /* Sombra para efecto de elevación */
+  position: relative;                   /* Posicionamiento relativo para efectos futuros */
+  overflow: hidden;                     /* Ocultar contenido desbordado */
+}
+
+/**
+ * Efecto hover para botones de categoría
+ * Eleva el botón y cambia el gradiente
+ */
+.btn-categoria:hover {
+  transform: translateY(-3px);          /* Elevar el botón 3px hacia arriba */
+  box-shadow: 0 5px 15px rgba(64, 145, 108, 0.4); /* Sombra más grande y pronunciada */
+  background: linear-gradient(135deg, #52b788 0%, #40916c 100%); /* Gradiente verde más claro */
+}
+
+/**
+ * Estado activo del botón de categoría
+ * Destaca visualmente la categoría seleccionada
+ */
+.btn-categoria.activo {
+  /* Gradiente amarillo/naranja para mayor contraste */
+  background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%);
+  color: #2d6a4f;                       /* Texto verde oscuro para contraste */
+  transform: scale(1.05);               /* Aumentar tamaño 5% */
+  box-shadow: 0 5px 15px rgba(255, 209, 102, 0.5); /* Sombra amarilla brillante */
+}
+
+/**
+ * Botón especial "Ver Todas"
+ * Estilo distintivo con gradiente morado
+ */
+.btn-todas {
+  /* Gradiente morado oscuro */
+  background: linear-gradient(135deg, #6a4c93 0%, #472d5b 100%);
+  margin-top: 10px;                     /* Separación superior de 10px */
+}
+
+/**
+ * Efecto hover del botón "Ver Todas"
+ * Aclara el gradiente morado
+ */
+.btn-todas:hover {
+  /* Gradiente morado más claro */
+  background: linear-gradient(135deg, #8b6db4 0%, #6a4c93 100%);
+}
+
+/**
+ * Estado activo del botón "Ver Todas"
+ * Usa el mismo estilo que categorías activas
+ */
+.btn-todas.activo {
+  /* Gradiente amarillo/naranja */
+  background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%);
+  color: #472d5b;                       /* Texto morado oscuro */
+}
+
+/* ============================================================================
+   9. ANIMACIONES Y EFECTOS VISUALES
+   ============================================================================ */
+
+/**
+ * Contenedor principal de todas las categorías
+ * Envuelve todas las secciones de categorías
+ */
+.productos-container {
+  margin-top: 30px;                     /* Separación superior de 30px */
+}
+
+/**
+ * Sección de cada categoría
+ * Aplica animación de entrada automáticamente
+ */
+.categoria {
+  animation: fadeIn 0.5s ease-in;       /* Aplicar animación fadeIn durante 0.5 segundos */
+  margin-bottom: 60px;                  /* Espacio inferior de 60px entre categorías */
+  padding: 20px 0;                      /* Padding vertical de 20px */
+}
+
+/**
+ * Definición de animación fadeIn
+ * Efecto de aparecer gradualmente desde abajo
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;                         /* Iniciar completamente transparente */
+    transform: translateY(20px);        /* Posición inicial 20px más abajo */
+  }
+  to {
+    opacity: 1;                         /* Terminar completamente visible */
+    transform: translateY(0);           /* Posición final en su lugar normal */
+  }
+}
+
+/**
+ * Títulos de categorías (h3)
+ * Estilo destacado con efectos especiales
+ */
+.categoria h3 {
+  color: #2d6a4f;                       /* Color verde oscuro corporativo */
+  font-size: 28px;                      /* Tamaño de fuente grande (28px) */
+  margin-bottom: 20px;                  /* Espacio inferior de 20px */
+  text-transform: uppercase;            /* Convertir texto a mayúsculas */
+  letter-spacing: 2px;                  /* Espaciado de 2px entre letras */
+  position: relative;                   /* Posicionamiento relativo para pseudo-elemento */
+  display: inline-block;                /* Comportamiento de bloque en línea */
+}
+
+/**
+ * Línea decorativa debajo de los títulos de categoría
+ * Pseudo-elemento ::after que crea un subrayado con gradiente
+ */
+.categoria h3::after {
+  content: '';                          /* Contenido vacío (requerido para que el pseudo-elemento se muestre) */
+  position: absolute;                   /* Posicionamiento absoluto respecto al h3 */
+  bottom: -8px;                         /* Posicionar 8px debajo del texto */
+  left: 0;                             /* Alinear al borde izquierdo */
+  width: 100%;                          /* Ancho completo del título */
+  height: 3px;                          /* Altura de la línea: 3px */
+  /* Gradiente horizontal de verde a amarillo */
+  background: linear-gradient(90deg, #40916c 0%, #ffd166 100%);
+  border-radius: 2px;                   /* Bordes ligeramente redondeados */
+}
